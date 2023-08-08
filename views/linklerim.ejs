@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('include/header.ejs')%>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+      .panel {
+        padding: 1rem;
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        min-width: 500px;
+        width: calc(33.33% - 1rem);
+      }
+      .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-container {
+      padding: 2rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      color: white;
+      border: none;
+    }
+
+    .form-input::placeholder {
+      color: rgb(128, 128, 128);
+    }
+
+    .form-button {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      background-color: #4299e1;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-button:hover {
+      background-color: #3182ce;
+    }
+
+    </style>
+</head> 
+<body class="bg-gray-900">
+    <br>
+    <div class="container py-8 bg-gray-800 rounded-lg">
+        <h1 class="text-2xl font-bold mb-4 text-white text-center">Uptime Silme Sistemi</h1>
+        <div class="form-container">
+          <form action="/sil" method="post">
+            <input name="del" type="text" placeholder="Proje URL'si" class="form-input bg-gray-700" required>
+            <input name="userId" type="text" value="<%-kullanici%>" class="form-input bg-gray-700" style="display: none;" readonly>
+            <button class="form-button">Sil</button>
+          </form>
+        </div>
+      </div>
+      </div>
+    <div class="container mx-auto mt-10 rounded-lg">
+        <div class="flex flex-col items-center">
+            <div class="panel text-white rounded-lg bg-gray-800 flex justify-center items-center text-center">
+                <p class="text-center md:text-center"><%- linkler %></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

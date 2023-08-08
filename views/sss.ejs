@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('include/header.ejs')%>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .faq-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+        }
+    
+        .faq-content.open {
+          max-height: 1000px;
+          transition: max-height 0.3s ease-in;
+        }
+    
+        .faq-button.rotate {
+          transform: rotate(180deg);
+        }
+      </style>
+</head> 
+<body class="bg-gray-900">
+    <br>
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-white">Sık Sorulan Sorular</h1>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="rounded shadow bg-gray-800 text-white">
+            <button class="flex justify-between items-center w-full p-4 focus:outline-none">
+              <span class="text-lg font-semibold">Uptime eklemek ücretli mi?</span>
+              <svg class="w-4 h-4 transition-transform duration-200 transform faq-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content bg-gray-700 rounded">
+              <p class="text-white">Hayır. Biz, size bu hizmeti tamamen ücretsiz bir şekilde sunuyoruz. Maksimum limiti geçmemeniz taktirde uptime listenize istediğiniz kadar proje ekleyebilirsiniz.</p>
+            </div>
+          </div>
+          <div class="text-white bg-gray-800 rounded shadow">
+            <button class="flex justify-between items-center w-full p-4 focus:outline-none">
+              <span class="text-lg font-semibold">Uptime nedir? Neden önemlidir?</span>
+              <svg class="w-4 h-4 transition-transform duration-200 transform faq-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content bg-gray-700 rounded">
+              <p class="text-white">Uptime sistemi aslında çok önemlidir. Çünkü birçok projeyi ücretsiz çalıştırmayı sağlayan bazı platformlar, projeleri 7/24 tutmuyor. Yani projeye girilmediği sürece projeyi uyku moduna alıyor. Uptime sistemi ise projelere istek göndererek onları canlı tutuyor ve bu sayede projeleriniz 7/24 tutulabiliyor.</p>
+            </div>
+          </div>
+          <div class="text-white bg-gray-800 rounded shadow">
+            <button class="flex justify-between items-center w-full p-4 focus:outline-none">
+              <span class="text-lg font-semibold">Başkası benim projemi listeye eklerse ne olur? Bu durumda nasıl kendi projemi yönetirim?</span>
+              <svg class="w-4 h-4 transition-transform duration-200 transform faq-button" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="faq-content bg-gray-700 rounded">
+              <p class="text-white">Bu durumda tek yapmanız gereken bizim destek sistemimizde bir talep oluşturmanızdır. Başvurularınızı <a href="/iletisim">İletişim</a> sayfamız üzerinden yapabilirsiniz. Taleplere en kısa sürede yanıt vermek ve size yardımcı olabilmek için sürekli çalışıyoruz. Destek ekibimiz oluşturduğunuz talebe en kısa sürede yanıt verecektir, buna emin olabilirsiniz.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <script>
+        const buttons = document.querySelectorAll('button');
+    
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            content.classList.toggle('open');
+    
+            const icon = button.querySelector('.faq-button');
+            icon.classList.toggle('rotate');
+          });
+        });
+      </script>
+</body>
+</html>

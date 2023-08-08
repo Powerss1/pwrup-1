@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Utiric Uptime</title>
+  <style>
+    /* Loading overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(30, 30, 30, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s;
+    }
+
+    .loading-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Loading spinner */
+    .loading-spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <a class="text-gray-300 px-3 py-2 rounded-md text-lg font-medium ml-2" href="/">Utiric Uptime</a>
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="nedenbiz" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Neden Biz?</a>
+              <a href="linklerim" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Linklerim</a>
+              <a href="ekle" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Uptime Ekle</a>
+              <a href="iletisim" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">İletişim</a>
+              <a href="sss" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">S.S.S.</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center">
+          <% if (user) { %>
+            <div class="relative inline-block text-left">
+              <div>
+                <button type="button" class="inline-flex justify-center w-full rounded-md shadow-sm bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="dropdown-menu-button">
+                  <%-user.username%>
+                </button>
+              </div>
+              <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 hidden" id="dropdown-menu" aria-labelledby="dropdown-menu-button" role="menu">
+                <div class="py-1" role="none">
+                  <a href="/linklerim" class="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Linklerim</a>
+                  <a href="/admin" class="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Admin Panel</a>
+                  <a href="/logout" class="block px-4 py-2 text-sm text-white hover:bg-gray-700" role="menuitem">Çıkış Yap</a>
+                </div>
+              </div>
+            </div>
+          <% } else { %>
+            <a href="/giris" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Giriş Yap</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var fadeIns = document.querySelectorAll(".fade-in");
+      fadeIns.forEach(function(element) {
+        element.classList.add("fade-in");
+      });
+
+      // Loading overlay
+      var loadingOverlay = document.getElementById("loadingOverlay");
+      loadingOverlay.style.opacity = "0";
+      setTimeout(function() {
+        loadingOverlay.style.display = "none";
+      }, 500);
+    });
+  </script>
+
+  <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const dropdownButton = document.getElementById("dropdown-menu-button");
+      const dropdownMenu = document.getElementById("dropdown-menu");
+
+      dropdownButton.addEventListener("click", function() {
+        dropdownMenu.classList.toggle("hidden");
+      });
+    });
+  </script>
+</body>
+  </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('include/header.ejs')%>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head> 
+<body class="bg-gray-900">
+    <br>
+    <div class="flex flex-col items-center  min-h-screen">
+        <h1 class="text-4xl font-bold mb-8 text-white"><%-name%></h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Kalitemiz</h2>
+                <p class="text-lg text-white">Gelişmiş sistemimizle botlarınızın projelerini 7/24 bir şekilde canlı tutuyoruz!</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Tasarım ve Geliştirme</h2>
+                <p class="text-lg text-white">Modern ve kullanıcı dostu tasarımlarla işletmenize özel web ve mobil uygulamalar geliştiriyoruz.</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Basitlik</h2>
+                <p class="text-lg text-white">Sitemiz ve hizmetlerimizin kullanımı oldukça basittir!</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Yönetim</h2>
+                <p class="text-lg text-white">Eklediğiniz proje URL'lerini istediğiniz zaman silebilirsiniz!</p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Ücretsiz</h2>
+                <p class="text-lg text-white">Uptime hizmetimiz tamamen ücretsizdir.</p>
+            </div>
+            <div class="bg-gray-800 text-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-4 text-white">Müşteri Desteği</h2>
+                <p class="text-lg text-white">Her zaman yanınızdayız! Sorularınızı yanıtlamak ve yardımcı olmak için buradayız.</p>
+            </div>
+        </div>
+        <br>
+        <h1 class="text-white text-center items-center flex font-bold"><a href="ekle">Haydi, ney duruyorsun!</a></h1>
+    </div>
+</body>
+</html>
